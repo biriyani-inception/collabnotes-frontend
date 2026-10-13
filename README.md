@@ -1,25 +1,22 @@
-# CollabNotes — Frontend
+# CollabNotes React Frontend
 
-Vanilla HTML/CSS/JS client for the CollabNotes real-time collaborative notes
-platform. Talks to the Spring Boot + STOMP backend
-(`biriyani-inception/collabnotes-backend`) over REST and a SockJS WebSocket.
+React + Vite frontend for the CollabNotes Spring Boot API.
 
-## Run locally
+## Local development
+1. Install Node.js 20 or newer.
+2. Run `npm install`.
+3. Run `npm run dev`.
 
-```bash
-cd frontend
-python3 -m http.server 5500
-# open http://localhost:5500
-```
+## Production build
+`npm run build` creates the deployable `dist/` folder.
 
-`config.js` auto-detects the host: on `localhost` it points at
-`http://localhost:8080`, on any other hostname it points at the production
-backend URL baked into the file. Override at runtime by setting
-`window.__CN_API_BASE__` / `window.__CN_WS_BASE__` in the browser console
-before the page scripts run.
+## Netlify deployment
+- Import `biriyani-inception/collabnotes-frontend` from GitHub.
+- Build command: `npm run build`
+- Publish directory: `dist`
+- Environment variable (optional): `VITE_API_BASE=https://YOUR-RENDER-SERVICE.onrender.com`
+- Optional WebSocket override: `VITE_WS_BASE=https://YOUR-RENDER-SERVICE.onrender.com/ws`
 
-## Deploy
+The app defaults to `https://collabnotes-backend.onrender.com`. If Render gives your service a different URL, set the two Netlify environment variables above and redeploy.
 
-Static site — works on Vercel, Netlify, GitHub Pages, or any static host.
-The SockJS WebSocket uses `wss://` automatically when the page is served
-over `https://`, so the same deployed files work in dev and prod.
+The backend must be deployed and reachable for registration, login, pages, and live collaboration to work.
