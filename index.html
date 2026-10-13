@@ -1,73 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#f3f5f7" />
 <title>CollabNotes — Real-time collaborative notes</title>
-<link rel="stylesheet" href="css/style.css">
-<style>
-  /* landing-only styles; live in this file to keep style.css focused on the app shell */
-  body.landing { height: auto; min-height: 100vh; overflow: auto; }
-  .landing-wrap { max-width: 880px; margin: 0 auto; padding: 64px 24px 96px; }
-  .landing-brand { font-family: var(--serif); font-size: 28px; font-weight: 700; margin: 0 0 4px; }
-  .landing-tag   { color: var(--ink-soft); margin: 0 0 48px; font-size: 15px; }
-  .landing-hero  { font-family: var(--serif); font-size: 44px; line-height: 1.15; font-weight: 700; margin: 0 0 16px; letter-spacing: -0.01em; }
-  .landing-sub   { color: var(--ink-soft); font-size: 17px; line-height: 1.55; margin: 0 0 32px; max-width: 560px; }
-  .landing-cta   { display: flex; gap: 10px; margin: 0 0 56px; flex-wrap: wrap; }
-  .landing-cta a { text-decoration: none; display: inline-block; padding: 10px 18px; border-radius: var(--radius); font-weight: 500; font-size: 14px; }
-  .landing-cta .btn-primary { background: var(--accent-strong); color: #fff; border: 1px solid var(--accent-strong); }
-  .landing-cta .btn-primary:hover { background: var(--accent); border-color: var(--accent); }
-  .landing-cta .btn-secondary { background: var(--paper-raised); color: var(--ink); border: 1px solid var(--line); }
-  .landing-cta .btn-secondary:hover { background: var(--accent-soft); }
-  .landing-features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 0 0 48px; }
-  .feat { background: var(--paper-raised); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; }
-  .feat h3 { margin: 0 0 6px; font-size: 14px; font-weight: 600; }
-  .feat p  { margin: 0; color: var(--ink-soft); font-size: 13px; line-height: 1.5; }
-  .landing-foot { color: var(--ink-soft); font-size: 12px; border-top: 1px solid var(--line); padding-top: 20px; }
-  @media (max-width: 640px) {
-    .landing-hero { font-size: 32px; }
-    .landing-features { grid-template-columns: 1fr; }
-  }
-</style>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 </head>
-<body class="landing">
-
-<div class="landing-wrap">
-  <p class="landing-brand">CollabNotes</p>
-  <p class="landing-tag">Real-time collaborative notes, built on Spring Boot &amp; STOMP.</p>
-
-  <h1 class="landing-hero">Notes that move at the speed of your team.</h1>
-  <p class="landing-sub">
-    Open a page, share it, type. Each keystroke, each cursor, each person — synced live
-    across every window, with no plugins and no setup.
-  </p>
-
-  <div class="landing-cta">
-    <a class="btn-primary" href="auth.html?tab=register">Create an account</a>
-    <a class="btn-secondary" href="auth.html">Log in</a>
-  </div>
-
-  <div class="landing-features">
-    <div class="feat">
-      <h3>Live editing</h3>
-      <p>STOMP over WebSocket pushes every keystroke to everyone on the page — no manual refresh.</p>
-    </div>
-    <div class="feat">
-      <h3>Workspaces &amp; pages</h3>
-      <p>Group pages into workspaces. Invite teammates by email with EDITOR or VIEWER roles.</p>
-    </div>
-    <div class="feat">
-      <h3>Persistent</h3>
-      <p>Every save hits the database — close the tab and come back to the same content.</p>
-    </div>
-  </div>
-
-  <p class="landing-foot">
-    Tip: register two accounts in separate windows, invite one to the other's workspace,
-    open the same page in both, and watch it sync. Backend hosted on Railway,
-    frontend on Vercel.
-  </p>
-</div>
-
-</body>
+<body><div id="root"></div><script type="module" src="/src/main.jsx"></script></body>
 </html>
