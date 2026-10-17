@@ -1,22 +1,26 @@
-# CollabNotes React Frontend
+# CollabNotes — Frontend (React)
 
-React + Vite frontend for the CollabNotes Spring Boot API.
+React (Vite) frontend for CollabNotes. Look and behaviour are identical to the original
+multi-page site; the backend is unchanged:
+[collabnotes-backend](https://github.com/biriyani-inception/collabnotes-backend) (Spring Boot, JWT, STOMP over SockJS).
 
-## Local development
-1. Install Node.js 20 or newer.
-2. Run `npm install`.
-3. Run `npm run dev`.
+**Live:** https://collabnotes-frontend-eight.vercel.app
 
-## Production build
-`npm run build` creates the deployable `dist/` folder.
+## Run locally
+```bash
+npm install
+npm run dev      # http://localhost:5173, talks to the backend on http://localhost:8080
+npm run build    # production build in dist/
+```
 
-## Netlify deployment
-- Import `biriyani-inception/collabnotes-frontend` from GitHub.
-- Build command: `npm run build`
-- Publish directory: `dist`
-- Environment variable (optional): `VITE_API_BASE=https://YOUR-RENDER-SERVICE.onrender.com`
-- Optional WebSocket override: `VITE_WS_BASE=https://YOUR-RENDER-SERVICE.onrender.com/ws`
+## Backend URL
+Deployed sites default to the Railway backend (`https://collabnotes-backend-production.up.railway.app`);
+localhost uses `http://localhost:8080`. Override at build time with `VITE_API_BASE` / `VITE_WS_BASE`,
+or at runtime with `window.__CN_API_BASE__` / `window.__CN_WS_BASE__`.
 
-The app defaults to `https://collabnotes-backend.onrender.com`. If Render gives your service a different URL, set the two Netlify environment variables above and redeploy.
+## Structure
+`src/App.jsx` (routes `/`, `/auth`, `/app`) · `src/pages/` (Landing, AuthPage, Workspace) ·
+`src/components/` (PageTree, BlockRow) · `src/hooks/useStomp.js` · `src/api/client.js` · `src/styles.css` (original CSS).
 
-The backend must be deployed and reachable for registration, login, pages, and live collaboration to work.
+Deploy: Vercel (`vercel.json`) or Netlify (`netlify.toml`) — both build with `npm run build` and serve `dist/` as an SPA.
+The old vanilla files (`app.html`, `auth.html`, `js/`, `css/`, `config.js`) are left in the repo but are no longer used.
